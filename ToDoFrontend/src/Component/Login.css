@@ -1,0 +1,54 @@
+/* Styles for the login form */
+.main{
+  height: 80vh;
+  width: 100vw;
+}
+.login-form {
+  max-width: 25em; /* 400px */
+  margin: 5em auto;
+  padding: 1.25em; /* 20px */
+  border: 0.0625em solid #ccc; /* 1px */
+  border-radius: 0.3125em; /* 5px */
+  background-color: #f9f9f9;
+}
+
+.login-form h2 {
+  text-align: center;
+  margin-bottom: 1.25em; /* 20px */
+}
+
+.login-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form label {
+  margin-bottom: 0.625em; /* 10px */
+}
+
+.login-form input {
+  padding: 0.625em; /* 10px */
+  margin-bottom: 0.9375em; /* 15px */
+  border: 0.0625em solid #ccc; /* 1px */
+  border-radius: 0.1875em; /* 3px */
+}
+
+.login-form button {
+  padding: 0.75em; /* 12px */
+  border: none;
+  border-radius: 0.1875em; /* 3px */
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.login-form button:hover {
+  background-color: #0056b3;
+}
+
+/* Media queries for small and medium screens */
+@media screen and (max-width: 48em) {
+  .login-form {
+    max-width: 90%; /* Adjusted width for smaller screens */
+  }
+}
