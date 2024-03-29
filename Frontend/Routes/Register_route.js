@@ -1,4 +1,3 @@
-import express from "express";
 import { validationResult } from "express-validator";
 import { jsonGenrate } from "../Validation/jsonGenrate.js";
 import bcrypt from 'bcrypt';
@@ -19,7 +18,6 @@ const  User = async (req, res) => {
 
         const error = validationResult(req);
         if (!error.isEmpty()) {
-            console.error("Validation Errors:", error.array());
             return res.status(400).json(jsonGenrate(400, "Validation Error", error.array()));
         }
         const exit = await UserModel.findOne({ $or:[{email:email},{
@@ -38,6 +36,7 @@ const  User = async (req, res) => {
         const token = Jwt.sign({
             userId:newUser._id
         },JWT_TOKEN_SECRET);
+    
         res.json(jsonGenrate(200, "Registration Successful", {userId:newUser._id,token:token}));
     } catch (error) {
         console.error("Internal Server Error:", error);

@@ -5,13 +5,13 @@ import UserModel from "../Model/UserModel.js";
 
 export const deleted = async (req,res) => {
 
-    const error = validationResult(req);
+    const error = validationResult(req.body);
     if(!error.isEmpty()){
         return res.json(jsonGenrate(202,"User id is Required",error));
     }
     try{
        const result = await Todo.findOneAndDelete({
-        userId:req.uesrId,
+        userId:req.body.userId,
         _id:req.body.todo_id,
        })
        if(result){

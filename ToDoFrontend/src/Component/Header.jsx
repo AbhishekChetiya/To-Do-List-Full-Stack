@@ -22,7 +22,7 @@ const Header = () => {
         <img src={todoicon} alt="todoicon" />
         <h3>ToDoList</h3>
         <ul>
-          <li><Link to="/">Home</Link></li>
+          <li><Link to={user ? "/" : "/Login"}>{user ? "Home" : ""}</Link></li>
           <li>
             <Link to="/login">
               {user ? "Logout" : "Login"}

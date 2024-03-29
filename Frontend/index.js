@@ -21,8 +21,8 @@ mongoose.connect(dburl)
     process.exit(1); // Exit the process with a non-zero code
   });
 
-app.use('/Page/',Route);
+app.use('/api/',Route);
 
-app.use('/Auth/',AuthMiddle, protect);
+app.use('/api/',AuthMiddle, protect);
 
 

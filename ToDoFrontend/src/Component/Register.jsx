@@ -17,19 +17,22 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // Here you can submit the form data to your backend or perform any other actions
-    console.log('Form submitted:', form);
     const result = await Registerpost(form);
-    if (result.data.status == 200) {
-      toast(result.data.message)
-      localStorage.setItem("user", JSON.stringify(result.data.data));
-      navigation("/");
-      window.location.reload();
+    if (result.data == 200) {
+      if (result.data.status == 200) {
+        console.log('Form submitted:', form);
+        toast(result.data.message)
+        localStorage.setItem("user", JSON.stringify(result.data.data));
+        navigation("/");
+        window.location.reload();
+      }
+      else {
+        toast(result.data.message)
+      }
     }
-    else {
-      toast(result.data.message)
-    }
-     return;
-  };
+    else
+      toast("Some Things Went Wrong")
+  }
 
   return (
     <div className="main">

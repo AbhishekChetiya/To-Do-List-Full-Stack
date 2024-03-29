@@ -30,16 +30,15 @@ const Login = () => {
       if (result.data.status === 200) {
         // Set user data in localStorage when login is successful
         localStorage.setItem("user", JSON.stringify(result.data.data));
+        console.log(result.data.data);
         tosti(result.data.message);
         navigation("/");
         window.location.reload();
       } else {
-        setError(result.data.data);
         tosti(result.data.message);
-        return;
+       
       }
     }
-    return;
   };
 
   const tosti = (e) => {
