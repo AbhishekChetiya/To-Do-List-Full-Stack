@@ -1,30 +1,36 @@
-/* Basic styling for the navigation bar */
+/* Basic styling for the body */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #f4f4f4; /* Light background for contrast */
 }
 
+/* Navigation Bar Styling */
 nav {
     background-color: #333;
     color: #fff;
-    height: 2rem;
+    height: 3rem; /* Increased height for better usability */
     display: flex;
-    flex-direction: row;
+    align-items: center; /* Center items vertically */
+    padding: 0 1em; /* Add padding on left and right */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
 }
 
+/* Logo Image Styling */
 nav img {
-    margin-left: 1em;
-    margin-right: 0.5em;
+    height: 2rem; /* Fixed height for logo */
+    margin-right: 0.5em; /* Space between logo and text */
 }
 
+/* Title Styling */
 nav h3 {
     color: #fff;
-    margin-top: 0%;
-    margin-left: 1em;
-    margin-right: 0.5em;
+    margin: 0 1em; /* Reduced margin for better alignment */
+    font-size: 1.5rem; /* Increase font size for visibility */
 }
 
+/* Navigation List Styling */
 nav ul {
     list-style: none;
     display: flex;
@@ -32,50 +38,61 @@ nav ul {
     flex-wrap: wrap;
     margin: 0; /* Remove default margin */
     padding: 0; /* Remove default padding */
+    margin-left: auto; /* Align links to the right */
 }
 
 nav ul li {
-    margin-left: 1em;
+    margin-left: 1.5em; /* Increased space between list items */
 }
 
 nav ul li a {
     color: #fff;
     text-decoration: none;
+    font-weight: 500; /* Slightly bolder text for emphasis */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
 }
 
+/* Hover Effect for Links */
 nav ul li a:hover {
-    color: red;
+    color: #ff6347; /* Tomato color for a vibrant hover effect */
 }
 
 /* Media queries for medium and small screen sizes */
 @media screen and (max-width: 768px) {
-    nav img {
-        margin-left: 0.5em;
-        margin-right: 0.25em;
+    nav {
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; /* Align items to the left */
+        height: auto; /* Allow height to adjust */
     }
 
     nav h3 {
-        margin-left: 0.5em;
-        margin-right: 0.25em;
+        margin: 0.5em 0; /* Adjust margin for better spacing */
+    }
+
+    nav ul {
+        margin-top: 0.5em; /* Add space above the list */
     }
 
     nav ul li {
-        margin-left: 0.5em;
+        margin-left: 0.75em; /* Reduce margin for smaller screens */
     }
 }
 
 @media screen and (max-width: 576px) {
+    nav {
+        padding: 0.5em; /* Reduce padding for very small screens */
+    }
+
     nav img {
-        margin-left: 0.25em;
-        margin-right: 0.1em;
+        height: 1.5rem; /* Reduce logo size */
+        margin-right: 0.25em; /* Adjust margin */
     }
 
     nav h3 {
-        margin-left: 0.25em;
-        margin-right: 0.1em;
+        font-size: 1.25rem; /* Decrease font size for smaller screens */
     }
 
     nav ul li {
-        margin-left: 0.25em;
+        margin-left: 0.5em; /* Further reduce margin */
     }
 }

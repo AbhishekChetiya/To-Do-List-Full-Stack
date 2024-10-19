@@ -1,56 +1,74 @@
+/* Main Container */
+.cantain-everything {
+    height: 80vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e5e5e5; /* Light background for contrast */
+    padding: 1em;
+}
+
+/* Popup for Adding Work */
 .main-add {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 70%;
-    width: 70%;
+    height: auto; /* Set to auto for responsive height */
+    width: 90%; /* Adjust width for responsiveness */
+    max-width: 500px; /* Limit maximum width */
     background-color: #001060;
     border-radius: 10px;
     box-shadow: 0 0 1em rgba(0, 0, 0, 0.1);
     z-index: 9999;
+    padding: 1.5em; /* Add padding for better spacing */
 }
-.cantain-everything{
-    height: 80vh;
-    width: 100vw;
-}
+
+/* Textarea Style */
 .big-textarea {
-    width: 90%;
-    height: 80%;
+    width: 100%; /* Full width for better responsiveness */
+    height: 80px; /* Fixed height for consistent look */
     margin-bottom: 0.625em;
     padding: 0.625em;
     font-size: 1em;
-    border: 0.0625em solid #ccc;
+    border: 1px solid #ccc;
     border-radius: 0.3125em;
+    resize: none; /* Prevent resizing */
 }
 
+/* Button Container */
 .button {
     display: flex;
     justify-content: space-between;
-    width: 90%;
+    width: 100%; /* Full width for responsiveness */
 }
 
+/* Button Styles */
 button {
     padding: 0.625em 1.25em;
     border: none;
     background-color: #aaaf4c;
     color: white;
-    border-radius: 1.5625em;
+    border-radius: 5em; /* Rounded corners for buttons */
     cursor: pointer;
     font-size: 1em;
     transition: background-color 0.3s ease;
+    width:100%; /* Adjust button width for spacing */
 }
 
 button:hover {
     background-color: #a0458c;
 }
 
-.todo-list#blur.active {
-    filter: blur(0.3125em);
+/* Blur Effect for Background */
+.todo-list#Blur.active {
+    filter: blur(5px); /* Increased blur for better effect */
     pointer-events: none;
     user-select: none;
 }
 
+/* Popup Transition */
 #popup {
     position: fixed;
     top: 50%;
@@ -65,47 +83,69 @@ button:hover {
     visibility: visible;
     opacity: 1;
 }
-.completed{
+
+/* Completed and Work Item Styles */
+.completed, .work-item {
     background-color: #f0f0f0;
-    border: 0.0625em solid #ccc;
+    border: 1px solid #ccc;
     border-radius: 0.3125em;
-    padding: 0.625em;
-    margin: auto;
-    margin-top: 0.625em;
-    width: 70vw;
-    text-decoration: line-through;
-}
-.work-item {
-    background-color: #f0f0f0;
-    border: 0.0625em solid #ccc;
-    border-radius: 0.3125em;
-    padding: 0.625em;
-    margin: auto;
-    margin-top: 0.625em;
-    width: 70vw;
+    padding: 1em; /* Increased padding for better spacing */
+    margin: 0.625em auto; /* Centering the items */
+    width: 90%; /* Full width for responsiveness */
+    transition: background-color 0.3s ease;
 }
 
+.completed {
+    text-decoration: line-through;
+    background-color: #cfcfcf; /* Lighter color for completed items */
+}
+
+/* Work Content Alignment */
 .work-content {
     display: flex;
     align-items: center;
 }
 
+/* Icons and Time Display */
 .work-icons {
     margin-left: auto;
     display: flex;
-    flex-direction: row;
+    align-items: center; /* Align icons vertically */
 }
-.work-icons span{
+
+.work-icons span {
     font-size: small;
+    margin-right: 0.5em; /* Space between time and icons */
 }
 
+/* Add Work Button Container */
 .Addwork {
-    margin: 2em;
+    margin: 1em;
 }
 
-.Addwork input {
-    height: 2em;
-    width: 30vw;
-    margin-right: 2em;
-    border-radius: 5px;
+/* Responsive Design */
+@media (max-width: 768px) {
+    .cantain-everything {
+        height: auto; /* Allow height to adjust based on content */
+        padding: 0.5em; /* Reduce padding on smaller screens */
+    }
+
+    .main-add {
+        width: 95%; /* Increase width on smaller screens */
+        padding: 1em; /* Reduce padding */
+    }
+
+    button {
+        width: 100%; /* Make buttons full width */
+        margin-top: 2em; /* Add margin for spacing */
+    }
+
+    .big-textarea {
+        height: 60px; /* Adjust height for smaller screens */
+    }
+
+    .Addwork input {
+        width: 100%; /* Full width for input field */
+        margin: 0; /* Remove margin */
+    }
 }
