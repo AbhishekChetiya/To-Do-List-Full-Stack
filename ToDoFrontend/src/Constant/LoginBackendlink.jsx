@@ -1,11 +1,11 @@
 import axios from "axios"
 import { getLocalStorageItem } from "../helpers";
-const url = 'http://localhost:3000/api/Login';
-const url1 = 'http://localhost:3000/api/register';
-const url2 = 'http://localhost:3000/api/createtodo';
-const url3 = 'http://localhost:3000/api/MarkTodo';
-const url4 = 'http://localhost:3000/api/Deletedto';
-const url5 = 'http://localhost:3000/api/GetTodo';
+const url = 'https://to-do-list-full-stack.onrender/api/Login';
+const url1 = 'https://to-do-list-full-stack.onrender/api/register';
+const url2 = 'https://to-do-list-full-stack.onrender/api/createtodo';
+const url3 = 'https://to-do-list-full-stack.onrender/api/MarkTodo';
+const url4 = 'https://to-do-list-full-stack.onrender/api/Deletedto';
+const url5 = 'https://to-do-list-full-stack.onrender/api/GetTodo';
 export const  Loginpost = async (data)=>{
     return (await axios.post(url,data));
 } 
