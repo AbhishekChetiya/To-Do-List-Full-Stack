@@ -1,12 +1,13 @@
-import React, { useState ,useEffect } from 'react';
+import React, { useState ,useEffect ,useContext} from 'react';
 import './Login.css'
 import "react-toastify/dist/ReactToastify.css"
 import { ToastContainer, toast } from "react-toastify";
 import { useNavigate } from 'react-router-dom'
 import { Loginpost } from '../Constant/LoginBackendlink';
-
+import { AppContext } from './LoginContext';
 const Login = () => {
   // State variables to hold the input value
+  const { logoutUser } = useContext(AppContext);
   const navigation = useNavigate();
   const [form, setForm] = useState({
     username: "",
@@ -16,7 +17,7 @@ const Login = () => {
     const user = localStorage.getItem("user");
     if (user) {
       localStorage.removeItem("user");
-      window.location.reload();
+      logoutUser();
     }
   }, []);
 
@@ -33,7 +34,7 @@ const Login = () => {
         console.log(result.data.data);
         tosti(result.data.message);
         navigation("/");
-        window.location.reload();
+        setUser(result.data.data);
       } else {
         tosti(result.data.message);
        

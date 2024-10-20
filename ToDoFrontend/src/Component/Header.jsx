@@ -1,16 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect,useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
 import todoicon from '../assets/todoicon.png'
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css"
+import "react-toastify/dist/ReactToastify.css";
+import {AppContext} from './LoginContext.jsx';
 
 const Header = () => {
-  const [user, setUser] = useState(null);
-
+  
+  const { user , loginUser} = useContext(AppContext);
   useEffect(() => {
     const userData = localStorage.getItem("user");
-    setUser(userData);
+    loginUser(userData);
     if(userData){
       toast("Welcome To Your Worksheet")
     }

@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import './Register.css';
 import { Registerpost } from '../Constant/LoginBackendlink';
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
 import { useNavigate } from 'react-router-dom';
-
+import {AppContext} from './LoginContext.jsx';
 const Register = () => {
+  const { loginUser } = useContext(AppContext);
   const [form, setForm] = useState({
     name: "", // Added the new field for name
     username: "",
@@ -24,7 +25,7 @@ const Register = () => {
         toast(result.data.message)
         localStorage.setItem("user", JSON.stringify(result.data.data));
         navigation("/");
-        window.location.reload();
+        loginUser(result.data.data);
       }
       else {
         toast(result.data.message)

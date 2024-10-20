@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { useEffect, useState } from 'react';
+import { useEffect, useState,useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MdDelete } from "react-icons/md";
 import { IoCheckmarkDoneSharp } from "react-icons/io5";
@@ -10,8 +10,10 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
 import { RxCross2 } from "react-icons/rx";
 import moment from 'moment';
+import { AppContext } from './LoginContext.jsx';
 
 const Home = () => {
+  const { loginUser,logoutUser } = useContext(AppContext);
   const [works, setWorks] = useState([]);
   const [newWork, setNewWork] = useState("");
   const navigation = useNavigate();
@@ -21,7 +23,7 @@ const Home = () => {
       const user = localStorage.getItem("user");
       if (!user) {
         navigation("/login");
-        window.location.reload();
+        loginUser();
       } else {
         try {
           const res = await Gettodo();
