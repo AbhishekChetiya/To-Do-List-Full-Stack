@@ -15,7 +15,7 @@ const Header = () => {
     if(userData){
       toast("Welcome To Your Worksheet")
     }
-  }, []); // Add user to the dependency array
+  }, []); 
 
   return (
     <div>

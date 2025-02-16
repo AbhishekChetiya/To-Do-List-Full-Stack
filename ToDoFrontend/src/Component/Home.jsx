@@ -21,24 +21,23 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       const user = localStorage.getItem("user");
-      if (!user) {
+      if (!user || user === "undefined") {
         navigation("/login");
         loginUser();
       } else {
         try {
           const res = await Gettodo();
           const obj = res.data.data;
-          // Ensure obj is an array
           if (Array.isArray(obj)) {
             setWorks(obj);
           } else {
-            console.error("Expected an array, but got:", obj);
-            setWorks([]); // Reset works to an empty array if data is not an array
+            setWorks([]); 
           }
         } catch (error) {
-          console.error("Error fetching todos:", error);
+          console.log(error);
           toast("Failed to load todos");
         }
+        
       }
     };
 
@@ -54,7 +53,7 @@ const Home = () => {
         if (Array.isArray(obj)) {
           setWorks(obj);
         } else {
-          console.error("Expected an array, but got:", obj);
+          toast("Failed to add todo");
         }
       } else {
         toast(result.data.message);
@@ -74,7 +73,7 @@ const Home = () => {
     if (Array.isArray(obj)) {
       setWorks(obj);
     } else {
-      console.error("Expected an array, but got:", obj);
+      toast("Failed to mark todo");
     }
   };
 
@@ -90,7 +89,7 @@ const Home = () => {
     if (Array.isArray(obj)) {
       setWorks(obj);
     } else {
-      console.error("Expected an array, but got:", obj);
+      toast("Failed to delete todo");
     }
   };
 

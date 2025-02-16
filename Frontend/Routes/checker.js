@@ -3,8 +3,6 @@
 import express from "express"
 import Login from "./Login.js"
 import User from "./Register_route.js"
-import { LoginValidation } from "../Validation/LoginValidation.js"
-import { UserValidation } from "../Validation/UserValidation.js"
 import { check } from "express-validator"
 import { GetTodos } from "./ShowToDo.js"
 import { Marktodo } from "./MarkCompelte.js"
@@ -14,8 +12,8 @@ import { Todoj } from "./ToDo.js"
 export const protect = express.Router();
 export const Route = express.Router();
 
-Route.post("/register", UserValidation, User);
-Route.post("/Login", LoginValidation, Login);
+Route.post("/register",  User);
+Route.post("/Login",  Login);
 
 
 protect.post("/createtodo", [check("Todo", "ToDo Description is required").exists()],Todoj);

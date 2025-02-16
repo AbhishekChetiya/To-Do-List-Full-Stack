@@ -1,11 +1,17 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState , useEffect} from 'react';
 
 // Create a new context
 export const AppContext = createContext();
 
 const AppProvider = ({ children }) => {
   const [user, setUser] = useState(null); // Global state (example: user)
-  
+
+  useEffect(() => {
+    const token = localStorage.getItem("user");
+    if (token) {
+      setUser(true);
+    }
+  }, []);
   const loginUser = (userData) => {
     setUser(userData); // Example function to update user
   };

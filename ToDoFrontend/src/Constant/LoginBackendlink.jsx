@@ -1,11 +1,12 @@
 import axios from "axios"
 import { getLocalStorageItem } from "../helpers";
-const url = 'https://to-do-list-full-stack.onrender.com/api/Login';
-const url1 = 'https://to-do-list-full-stack.onrender.com/api/register';
-const url2 = 'https://to-do-list-full-stack.onrender.com/api/createtodo';
-const url3 = 'https://to-do-list-full-stack.onrender.com/api/MarkTodo';
-const url4 = 'https://to-do-list-full-stack.onrender.com/api/Deletedto';
-const url5 = 'https://to-do-list-full-stack.onrender.com/api/GetTodo';
+
+const url = `${import.meta.env.VITE_BACKEND_URL}/api/Login`;
+const url1 = `${import.meta.env.VITE_BACKEND_URL}/api/register`;
+const url2 = `${import.meta.env.VITE_BACKEND_URL}/api/createtodo`;
+const url3 = `${import.meta.env.VITE_BACKEND_URL}/api/MarkTodo`;
+const url4 = `${import.meta.env.VITE_BACKEND_URL}/api/Deletedto`;
+const url5 = `${import.meta.env.VITE_BACKEND_URL}/api/GetTodo`;
 export const  Loginpost = async (data)=>{
     return (await axios.post(url,data));
 } 

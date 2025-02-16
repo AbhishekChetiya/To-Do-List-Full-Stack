@@ -4,7 +4,7 @@ import { Registerpost } from '../Constant/LoginBackendlink';
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
 import { useNavigate } from 'react-router-dom';
-import {AppContext} from './LoginContext.jsx';
+import { AppContext } from './LoginContext.jsx';
 const Register = () => {
   const { loginUser } = useContext(AppContext);
   const [form, setForm] = useState({
@@ -19,18 +19,13 @@ const Register = () => {
     e.preventDefault();
     // Here you can submit the form data to your backend or perform any other actions
     const result = await Registerpost(form);
-    if (result.data == 200) {
-      if (result.data.status == 200) {
-        console.log('Form submitted:', form);
-        toast(result.data.message)
-        localStorage.setItem("user", JSON.stringify(result.data.data));
-        navigation("/");
-        loginUser(result.data.data);
-      }
-      else {
-        toast(result.data.message)
-      }
+    if (result?.status === 200) {
+      toast(result.data.message)
+      localStorage.setItem("user", JSON.stringify(result.data.data));
+      navigation("/");
+      loginUser(result.data.data);
     }
+
     else
       toast("Some Things Went Wrong")
   }

@@ -1,4 +1,3 @@
-import { validationResult } from "express-validator";
 import { jsonGenrate } from "../Validation/jsonGenrate.js";
 import bcrypt from 'bcrypt';
 import UserModel from "../Model/UserModel.js";
@@ -15,11 +14,7 @@ const  User = async (req, res) => {
         if (!name || !username || !password || !email) {
             return res.status(400).json(jsonGenrate(400, "Missing required fields"));
         }
-
-        const error = validationResult(req);
-        if (!error.isEmpty()) {
-            return res.status(400).json(jsonGenrate(400, "Validation Error", error.array()));
-        }
+       
         const exit = await UserModel.findOne({ $or:[{email:email},{
             username:username
         }]});
@@ -36,12 +31,9 @@ const  User = async (req, res) => {
         const token = Jwt.sign({
             userId:newUser._id
         },JWT_TOKEN_SECRET);
-    
-        res.json(jsonGenrate(200, "Registration Successful", {userId:newUser._id,token:token}));
+        return res.status(200).json({message: "Registration Successful", userId:newUser._id,token:token});
     } catch (error) {
-        console.error("Internal Server Error:", error);
-   
-        res.status(500).json(jsonGenrate(500, "Internal Server Error",error));
+       return res.status(500).json(jsonGenrate(500, "Internal Server Error",error));
     }
 };
 

@@ -6,8 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import { Loginpost } from '../Constant/LoginBackendlink';
 import { AppContext } from './LoginContext';
 const Login = () => {
-  // State variables to hold the input value
-  const { logoutUser } = useContext(AppContext);
+  const { logoutUser , loginUser} = useContext(AppContext);
   const navigation = useNavigate();
   const [form, setForm] = useState({
     username: "",
@@ -21,17 +20,14 @@ const Login = () => {
     }
   }, []);
 
-  // Function to handle form submission
+ 
   const handleSubmit = async (event) => {
-    event.preventDefault(); // Prevent default form submission behavior
+    event.preventDefault();
     const result = await Loginpost(form);
-    // Here you can add your login logic, such as sending the username and password to a server for authentication
-    // Optionally, you can clear the input fields after submission
     if (result.status === 200) {
       if (result.data.status === 200) {
-        // Set user data in localStorage when login is successful
         localStorage.setItem("user", JSON.stringify(result.data.data));
-        console.log(result.data.data);
+        loginUser(result.data.data);
         tosti(result.data.message);
         navigation("/");
         setUser(result.data.data);

@@ -11,7 +11,6 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 const dburl = process.env.db;
-
 mongoose.connect(dburl)
   .then(() => {
     console.log("Connected to MongoDB");
