@@ -30,7 +30,6 @@ const Login = () => {
         loginUser(result.data.data);
         tosti(result.data.message);
         navigation("/");
-        setUser(result.data.data);
       } else {
         tosti(result.data.message);
        

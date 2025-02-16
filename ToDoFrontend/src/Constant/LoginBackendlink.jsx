@@ -1,12 +1,12 @@
 import axios from "axios"
 import { getLocalStorageItem } from "../helpers";
 
-const url = `${import.meta.env.VITE_BACKEND_URL}/api/Login`;
-const url1 = `${import.meta.env.VITE_BACKEND_URL}/api/register`;
-const url2 = `${import.meta.env.VITE_BACKEND_URL}/api/createtodo`;
-const url3 = `${import.meta.env.VITE_BACKEND_URL}/api/MarkTodo`;
-const url4 = `${import.meta.env.VITE_BACKEND_URL}/api/Deletedto`;
-const url5 = `${import.meta.env.VITE_BACKEND_URL}/api/GetTodo`;
+const url = `${import.meta.env.VITE_BACKEND_URL}/Login`;
+const url1 = `${import.meta.env.VITE_BACKEND_URL}/register`;
+const url2 = `${import.meta.env.VITE_BACKEND_URL}/createtodo`;
+const url3 = `${import.meta.env.VITE_BACKEND_URL}/MarkTodo`;
+const url4 = `${import.meta.env.VITE_BACKEND_URL}/Deletedto`;
+const url5 = `${import.meta.env.VITE_BACKEND_URL}/GetTodo`;
 export const  Loginpost = async (data)=>{
     return (await axios.post(url,data));
 } 
